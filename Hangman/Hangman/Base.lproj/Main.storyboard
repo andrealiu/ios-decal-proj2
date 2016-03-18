@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Start Screen View-->
@@ -59,7 +60,7 @@
             </objects>
             <point key="canvasLocation" x="828" y="257"/>
         </scene>
-        <!--Game View Controller-->
+        <!--Hangman-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="GameViewController" customModule="Hangman" customModuleProvider="target" sceneMemberID="viewController">
@@ -93,9 +94,12 @@
                                 <color key="textColor" red="0.94115492020000002" green="0.9561506434" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="_ _ _ _ _ _ " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yWb-Ww-c6J">
-                                <rect key="frame" x="189" y="351" width="223.5" height="68.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="57"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="_ _ _ _ _ _ " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="yWb-Ww-c6J">
+                                <rect key="frame" x="25" y="362" width="555" height="68.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="555" id="eHh-iw-x8Y"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="44"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -109,6 +113,9 @@
                                 <state key="normal" title="Guess!">
                                     <color key="titleColor" red="0.30120723729999999" green="0.25982906750000001" blue="0.37443910260000002" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="guessButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9NB-nf-7bK"/>
+                                </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hangman2.gif" translatesAutoresizingMaskIntoConstraints="NO" id="Mpy-zN-LCk">
                                 <rect key="frame" x="257" y="119" width="155" height="155"/>
@@ -117,29 +124,74 @@
                                     <constraint firstAttribute="width" constant="155" id="wVB-pV-4FS"/>
                                 </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Incorrect Guesses:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jOj-Hy-ADg">
+                                <rect key="frame" x="20" y="307" width="144" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="144" id="EIi-0T-Sqt"/>
+                                    <constraint firstAttribute="height" constant="21" id="XCV-qp-SYX"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                                <color key="textColor" red="0.30120723729999999" green="0.25982906750000001" blue="0.37443910260000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A B C D" textAlignment="natural" lineBreakMode="characterWrap" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="gBI-xv-qz7">
+                                <rect key="frame" x="172" y="307" width="416" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="3dU-hv-9j1"/>
+                                    <constraint firstAttribute="width" constant="416" id="fLl-jk-DvQ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" red="0.39221549049999999" green="0.32752752480000002" blue="0.53579727560000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.30120723729387877" green="0.25982906746955331" blue="0.37443910256410251" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="Aod-PB-cAQ" firstAttribute="top" secondItem="y6c-NX-UY1" secondAttribute="bottom" constant="130" id="1Fg-bi-DFi"/>
                             <constraint firstItem="Aod-PB-cAQ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="29E-Kg-whx"/>
+                            <constraint firstItem="gBI-xv-qz7" firstAttribute="leading" secondItem="jOj-Hy-ADg" secondAttribute="trailing" constant="8" id="3Oe-ob-dKE"/>
+                            <constraint firstItem="jOj-Hy-ADg" firstAttribute="top" secondItem="y6c-NX-UY1" secondAttribute="bottom" constant="-36" id="6TY-gf-ikF"/>
                             <constraint firstItem="gFC-3Q-sAf" firstAttribute="top" secondItem="Aod-PB-cAQ" secondAttribute="bottom" constant="25" id="8ON-bd-X1c"/>
                             <constraint firstItem="17h-7B-bi6" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="8pG-3s-lOK"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="y6c-NX-UY1" secondAttribute="bottom" constant="257" id="9Ht-fH-cwo"/>
+                            <constraint firstItem="gBI-xv-qz7" firstAttribute="top" secondItem="y6c-NX-UY1" secondAttribute="bottom" constant="-36" id="AkV-6h-PVI"/>
                             <constraint firstItem="gFC-3Q-sAf" firstAttribute="top" secondItem="y6c-NX-UY1" secondAttribute="bottom" constant="185" id="D1s-gx-MoL"/>
                             <constraint firstItem="Mpy-zN-LCk" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="34.5" id="Ffk-8O-9JE"/>
-                            <constraint firstItem="yWb-Ww-c6J" firstAttribute="top" secondItem="y6c-NX-UY1" secondAttribute="bottom" constant="8" id="Ghe-gr-0cQ"/>
+                            <constraint firstItem="yWb-Ww-c6J" firstAttribute="top" secondItem="y6c-NX-UY1" secondAttribute="bottom" constant="19" id="Ghe-gr-0cQ"/>
                             <constraint firstItem="Aod-PB-cAQ" firstAttribute="top" secondItem="17h-7B-bi6" secondAttribute="bottom" constant="8" id="Gqf-iA-v2E"/>
                             <constraint firstItem="gFC-3Q-sAf" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="KTb-IX-PBU"/>
                             <constraint firstItem="Mpy-zN-LCk" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="55" id="SrP-rf-atv"/>
-                            <constraint firstItem="yWb-Ww-c6J" firstAttribute="top" secondItem="Mpy-zN-LCk" secondAttribute="bottom" constant="77" id="U99-JX-v6S"/>
+                            <constraint firstItem="yWb-Ww-c6J" firstAttribute="top" secondItem="Mpy-zN-LCk" secondAttribute="bottom" constant="88" id="U99-JX-v6S"/>
+                            <constraint firstItem="gBI-xv-qz7" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="152" id="Ujj-pz-51y"/>
                             <constraint firstItem="17h-7B-bi6" firstAttribute="top" secondItem="y6c-NX-UY1" secondAttribute="bottom" constant="101" id="ZZt-VL-kTc"/>
                             <constraint firstItem="Mpy-zN-LCk" firstAttribute="top" secondItem="y6c-NX-UY1" secondAttribute="bottom" constant="-224" id="afm-wv-Yyy"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="yWb-Ww-c6J" secondAttribute="trailing" id="b22-WC-f9O"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="jOj-Hy-ADg" secondAttribute="leading" id="cSd-dD-vCw"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="gBI-xv-qz7" secondAttribute="trailing" constant="-8" id="gY9-vv-PNJ"/>
+                            <constraint firstItem="yWb-Ww-c6J" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="5" id="ifR-Ap-lW8"/>
                             <constraint firstItem="Mpy-zN-LCk" firstAttribute="leading" secondItem="y6c-NX-UY1" secondAttribute="trailing" constant="-349" id="oYj-c5-JGO"/>
                             <constraint firstItem="y6c-NX-UY1" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="sFp-ec-scv"/>
-                            <constraint firstItem="Aod-PB-cAQ" firstAttribute="top" secondItem="yWb-Ww-c6J" secondAttribute="bottom" constant="53.5" id="tRs-cq-cKC"/>
-                            <constraint firstItem="yWb-Ww-c6J" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="tn0-c5-bvO"/>
+                            <constraint firstItem="Aod-PB-cAQ" firstAttribute="top" secondItem="yWb-Ww-c6J" secondAttribute="bottom" constant="42.5" id="tRs-cq-cKC"/>
+                            <constraint firstItem="yWb-Ww-c6J" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="2.5" id="tn0-c5-bvO"/>
+                            <constraint firstItem="gBI-xv-qz7" firstAttribute="leading" secondItem="y6c-NX-UY1" secondAttribute="trailing" constant="-434" id="vME-eG-V60"/>
+                            <constraint firstItem="y6c-NX-UY1" firstAttribute="leading" secondItem="jOj-Hy-ADg" secondAttribute="trailing" constant="-170" id="wPj-GU-fHO"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Hangman" id="YTU-wo-QWe">
+                        <barButtonItem key="rightBarButtonItem" title="Start Over" id="MSh-vy-uqq">
+                            <color key="tintColor" red="0.30120723729999999" green="0.25982906750000001" blue="0.37443910260000002" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="startOverButtonPressed:" destination="BYZ-38-t0r" id="r3W-Mv-pd7"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="guessBlanks" destination="yWb-Ww-c6J" id="yJm-6s-UA9"/>
+                        <outlet property="guessButton" destination="gFC-3Q-sAf" id="XZk-rO-him"/>
+                        <outlet property="hangmanImage" destination="Mpy-zN-LCk" id="UqD-eS-jD2"/>
+                        <outlet property="incorrectGuessesCharacterList" destination="gBI-xv-qz7" id="w8N-ZS-9J8"/>
+                        <outlet property="userGuessTextField" destination="Aod-PB-cAQ" id="8g5-9E-O8r"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
